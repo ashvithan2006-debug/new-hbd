@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Pirathikshana! 🐾💖</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            themeBlue: '#0f172a',
+            themeMidBlue: '#1e1b4b',
+            themePurple: '#3b0764',
+            softPurple: '#581c87'
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            shimmer: 'shimmer 3s linear infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --light-pink: #ffe6ee;
+      --mid-pink: #ff85a2;
+      --dark-pink: #ff2a6d;
+      --deep-pink: #c9184a;
+      --purple-accent: #7b2cbf;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--light-pink), var(--mid-pink));
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #4a0e17;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    /* Floating Cat Emojis */
+    .floating-cat {
+      position: fixed;
+      font-size: 24px;
+      animation: floatUp 6s infinite linear;
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* --- SECTION 1: LOCK SCREEN --- */
+    .lock-screen {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255, 42, 109, 0.3);
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+      border: 3px solid var(--mid-pink);
+    }
+
+    .lock-screen h2 {
+      color: var(--deep-pink);
+      margin-bottom: 10px;
+    }
+
+    .cat-avatar {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .password-input {
+      width: 80%;
+      padding: 12px;
+      border: 2px solid var(--mid-pink);
+      border-radius: 25px;
+      outline: none;
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: var(--deep-pink);
+    }
+
+    .btn {
+      background: linear-gradient(to right, var(--mid-pink), var(--dark-pink));
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 42, 109, 0.4);
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .error-msg {
+      color: var(--deep-pink);
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* --- SECTION 2: MAIN PAGE --- */
+    .main-page {
+      display: none;
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 30px rgba(201, 24, 74, 0.2);
+      border: 4px solid var(--mid-pink);
+    }
+
+    h1.main-title {
+      color: var(--deep-pink);
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: var(--dark-pink);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .wish-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #5c1d28;
+      background: var(--light-pink);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 20px 0;
+      border-left: 5px solid var(--dark-pink);
+    }
+
+    .nav-link {
+      display: inline-block;
+      margin: 10px 15px;
+      color: var(--deep-pink);
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--purple-accent);
+      text-decoration: underline;
+    }
+
+    /* --- SECTION 3: GALLERY SLIDER --- */
+    .gallery-page {
+      display: none;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .gallery-card {
+      background-color: #ffffff;
+      border: 3px solid var(--mid-pink);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(128, 0, 128, 0.15);
+      text-align: center;
+    }
+
+    .gallery-title {
+      color: var(--purple-accent);
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      touch-action: pan-y;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--purple-accent);
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #9d4edd;
+      color: #ffffff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s;
+    }
+
+    .slider-btn:hover {
+      background-color: var(--purple-accent);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .dots-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background-color: #e0b0ff;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .dot.active {
+      background-color: #ff477e;
+      transform: scale(1.2);
+    }
+
+    /* --- SECTION 4: CAKE PAGE STYLES --- */
+    .cake-page {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-family: 'Nunito', sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      z-index: 100;
+    }
+
+    .font-fredoka { font-family: 'Fredoka One', cursive; }
+
+    .shimmer-text {
+      background: linear-gradient(90deg, #fff, #f472b6, #c084fc, #fff);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: shimmer 3s linear infinite;
+    }
+
+    .flame-wrapper {
+      position: absolute;
+      transform: translateX(-50%);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    .flame-wrapper.off {
+      opacity: 0 !important;
+      transform: translateX(-50%) scale(0) !important;
+      pointer-events: none;
+    }
+
+    .flame-inner {
+      width: 16px;
+      height: 26px;
+      background: linear-gradient(to bottom, #ff5 0%, #ff9800 50%, #f44336 100%);
+      border-radius: 50% 50% 20% 20%;
+      box-shadow: 0 0 14px #ff9800, 0 0 28px #ffeb3b, 0 0 42px #ff5722;
+      animation: flicker .12s infinite alternate ease-in-out;
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(.92) rotate(-2deg); opacity: .9; }
+      100% { transform: scale(1.15) rotate(2deg); opacity: 1; }
+    }
+
+    .smoke-particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: rgba(240, 240, 255, .85);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: riseAndFade 1.2s ease-out forwards;
+    }
+
+    @keyframes riseAndFade {
+      0% { opacity: .9; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-50px) scale(3.5); }
+    }
+
+    #emoji-canvas, #balloon-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    #emoji-canvas { z-index: 5; }
+    #balloon-canvas { z-index: 15; }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Cats Background (for Main App Pages) -->
+  <div class="floating-cat" style="left: 10%; animation-duration: 7s;">🐱</div>
+  <div class="floating-cat" style="left: 30%; animation-duration: 5s;">🐾</div>
+  <div class="floating-cat" style="left: 60%; animation-duration: 8s;">😻</div>
+  <div class="floating-cat" style="left: 85%; animation-duration: 6s;">🐈‍⬛</div>
+
+  <!-- 1. Lock Screen Page -->
+  <div class="lock-screen" id="lockScreen">
+    <div class="cat-avatar">🐱🔒</div>
+    <h2>Secret Lock</h2>
+    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Enter the special password to open!</p>
+    <input type="password" id="passInput" class="password-input" placeholder="Enter Password">
+    <br>
+    <button class="btn" onclick="checkPassword()">Unlock 💖</button>
+    <p class="error-msg" id="errorMsg">Wrong Password! Hint: Our special date / name 🐾</p>
+  </div>
+
+  <!-- 2. Birthday Wishes Main Page -->
+  <div class="main-page" id="mainPage">
+    <div class="card">
+      <h1 class="main-title">Happy Birthday Pirathikshana! 🎂✨🙌</h1>
+      <p class="subtitle">You make my world so sweet and happy! 🐾💖</p>
+
+      <div class="wish-text">
+        <p>🐾 <b>To My Special Person,</b></p>
+        <br>
+        <p>
+          Intha special day la unakku enudaiya idhayamaarndha Piranthanaal Vaalthukkal Pirathikshana! 
+          Nee eppovumey sandhosama, sirichukitte irukkanum. Enjoy every minute of your special day. Thank you for decades of laughter, support, and unbelievable memories. God bless you! 🐱💕🙌🌸 
+        </p>
+      </div>
+
+      <div>
+        <a class="nav-link" onclick="showPage('galleryPage')">Gallery 🤍🐱</a>
+        <a class="nav-link" onclick="showPage('cakePage')">Cake 🎂💕</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Photo Gallery Page -->
+  <div class="gallery-page" id="galleryPage">
+    <div class="gallery-card">
+      <h2 class="gallery-title">Photo Gallery 💖 🤍 🐱</h2>
+
+      <div class="slider-container" id="slider">
+        <div class="slides" id="slides">
+          <!-- Photo 1 -->
+          <div class="slide">
+            <span class="badge">Cute Smile 😻</span>
+            <img src="C:\Users\Ashvithan\OneDrive\Desktop\f HBD\WhatsApp Image 2026-09-30 at 9.15.43 AM.jpeg" alt="Photo 1">
+          </div>
+          
+          <!-- Photo 2 -->
+          <div class="slide">
+            <span class="badge">Best Moment 💖</span>
+            <img src="C:\Users\Ashvithan\OneDrive\Desktop\f HBD\WhatsApp Image 2026-09-30 at 9.15.44 AM.jpeg" alt="Photo 2">
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="slide">
+            <span class="badge">Forever Together 🐾</span>
+            <img src="C:\Users\Ashvithan\OneDrive\Desktop\f HBD\WhatsApp Image 2026-09-300 at 9.15.44 AM.jpeg" alt="Photo 3">
+          </div>
+        </div>
+
+        <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+
+      <div class="dots-container">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+
+      <br>
+      <a class="nav-link" onclick="showPage('mainPage')">← Back to Main Page</a>
+    </div>
+  </div>
+
+  <!-- 4. Interactive Cake Celebration Page -->
+  <div class="cake-page bg-gradient-to-b from-themeBlue via-themeMidBlue to-themePurple text-white overflow-hidden flex flex-col justify-between items-center relative" id="cakePage">
+    <canvas id="emoji-canvas"></canvas>
+    <canvas id="balloon-canvas"></canvas>
+
+    <header class="w-full max-w-4xl px-6 pt-5 flex justify-between items-center z-20">
+      <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-md">
+        <span class="text-2xl">🐱</span><span class="text-xs sm:text-sm font-extrabold text-purple-100">01.10.2026</span>
+      </div>
+      <button id="music-btn" class="flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-4 py-2 rounded-full shadow-lg border border-pink-300/40 active:scale-95 transition">
+        <span id="music-icon" class="text-base sm:text-lg">🎵</span><span id="music-text" class="text-xs sm:text-sm font-bold">Music: On</span>
+      </button>
+    </header>
+
+    <main class="flex-1 flex flex-col items-center justify-center text-center px-4 z-20 w-full max-w-2xl my-auto">
+      <div class="animate-float-slow">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-fredoka shimmer-text drop-shadow-xl tracking-wider mb-1">Happy Birthday!</h1>
+        <p class="text-purple-200 text-xs sm:text-base font-extrabold opacity-90 tracking-wider">Touch the cake to turn candles ON & OFF! ❤️ 🤍 🐱</p>
+      </div>
+
+      <div class="relative my-6 sm:my-8 cursor-pointer group select-none" id="cake-container" title="Touch the cake!">
+        <div id="cake-glow" class="absolute -inset-4 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-full blur-xl opacity-60 group-hover:opacity-90 transition duration-500 animate-pulse"></div>
+        <div class="relative transform group-hover:scale-105 active:scale-95 transition-all duration-300">
+          <svg width="300" height="280" viewBox="0 0 300 280" class="w-72 sm:w-96 h-auto filter drop-shadow-2xl">
+            <ellipse cx="150" cy="265" rx="135" ry="12" fill="#e2e8f0"/><rect x="130" y="258" width="40" height="15" fill="#cbd5e1"/><ellipse cx="150" cy="258" rx="110" ry="10" fill="#fff"/>
+            <path d="M 45 180 Q 150 198 255 180 L 255 248 Q 150 266 45 248 Z" fill="#ff4d6d"/><ellipse cx="150" cy="180" rx="105" ry="18" fill="#ff758f"/>
+            <path d="M 45 180 Q 62 205 80 180 Q 98 210 115 180 Q 132 205 150 180 Q 168 210 185 180 Q 202 205 220 180 Q 238 210 255 180 Q 255 190 255 192 Q 150 210 45 192 Z" fill="#fff" opacity="0.95"/>
+            <path d="M 68 115 Q 150 130 232 115 L 232 175 Q 150 192 68 175 Z" fill="#ff758f"/><ellipse cx="150" cy="115" rx="82" ry="14" fill="#ff9ebb"/>
+            <path d="M 68 115 Q 85 135 102 115 Q 118 138 135 115 Q 152 138 168 115 Q 185 135 202 115 Q 218 138 232 115 Q 232 125 232 127 Q 150 142 68 127 Z" fill="#fff"/>
+            <path d="M 105 150 Q 105 145 110 145 Q 115 145 115 150 Q 115 155 110 158 Z" fill="#a855f7"/><path d="M 150 152 Q 150 147 155 147 Q 160 147 160 152 Q 160 157 155 160 Z" fill="#a855f7"/><path d="M 190 150 Q 190 145 195 145 Q 200 145 200 150 Q 200 155 195 158 Z" fill="#a855f7"/>
+            <path d="M 92 60 Q 150 72 208 60 L 208 110 Q 150 124 92 110 Z" fill="#ffb3c6"/><ellipse cx="150" cy="60" rx="58" ry="12" fill="#ffe5ec"/>
+            <path d="M 92 60 Q 110 78 128 60 Q 146 80 164 60 Q 182 78 208 60 Q 208 68 208 70 Q 150 82 92 70 Z" fill="#fff"/>
+            <rect x="110" y="24" width="9" height="38" rx="3" fill="#38bdf8"/><path d="M 110 30 L 119 33 M 110 42 L 119 45" stroke="#fff" stroke-width="2"/><line x1="114.5" y1="24" x2="114.5" y2="16" stroke="#1e293b" stroke-width="2"/>
+            <rect x="145.5" y="18" width="9" height="44" rx="3" fill="#c084fc"/><path d="M 145.5 25 L 154.5 28 M 145.5 38 L 154.5 41" stroke="#fff" stroke-width="2"/><line x1="150" y1="18" x2="150" y2="10" stroke="#1e293b" stroke-width="2"/>
+            <rect x="181" y="24" width="9" height="38" rx="3" fill="#f472b6"/><path d="M 181 30 L 190 33 M 181 42 L 190 45" stroke="#fff" stroke-width="2"/><line x1="185.5" y1="24" x2="185.5" y2="16" stroke="#1e293b" stroke-width="2"/>
+          </svg>
+          <div id="flame-1" class="flame-wrapper" style="top: 2px; left: 38.2%;"><div class="flame-inner"></div></div>
+          <div id="flame-2" class="flame-wrapper" style="top: -5px; left: 50%;"><div class="flame-inner"></div></div>
+          <div id="flame-3" class="flame-wrapper" style="top: 2px; left: 61.8%;"><div class="flame-inner"></div></div>
+        </div>
+      </div>
+
+      <div id="status-badge" class="bg-white/15 backdrop-blur-md border border-white/25 text-white font-extrabold px-6 py-2.5 rounded-full shadow-xl transition-all duration-300 transform animate-bounce flex items-center space-x-2">
+        <span id="badge-icon" class="text-xl">🔥</span><span id="badge-text" class="text-xs sm:text-sm">Candles are ON! Touch cake to blow them out</span>
+      </div>
+    </main>
+
+    <footer class="mb-3 text-center text-xs text-purple-200/80 z-20">
+      <p class="font-bold mb-1">Happy Birthday To You ❤️🎂✨</p>
+      <a class="underline cursor-pointer hover:text-white transition" onclick="showPage('mainPage')">← Back to Main Website</a>
+    </footer>
+  </div>
+
+  <script>
+    // Secret Password Function
+    function checkPassword() {
+      const SECRET_PASSWORD = "0720"; 
+      const userInput = document.getElementById("passInput").value;
+      const errorMsg = document.getElementById("errorMsg");
+
+      if (userInput === SECRET_PASSWORD) {
+        showPage('mainPage');
+      } else {
+        errorMsg.style.display = "block";
+      }
+    }
+
+    // Single Page Navigation Switcher
+    function showPage(pageId) {
+      document.getElementById("lockScreen").style.display = "none";
+      document.getElementById("mainPage").style.display = "none";
+      document.getElementById("galleryPage").style.display = "none";
+      document.getElementById("cakePage").style.display = "none";
+
+      if (pageId === 'cakePage') {
+        document.getElementById(pageId).style.display = "flex";
+        resizeCanvases();
+      } else {
+        document.getElementById(pageId).style.display = "block";
+      }
+    }
+
+    // Gallery Slider Logic
+    let currentIndex = 0;
+    const slides = document.getElementById('slides');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = 3;
+
+    function updateSlider() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function moveSlide(step) {
+      currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    function currentSlide(index) {
+      currentIndex = index;
+      updateSlider();
+    }
+
+    // Touch / Swipe Logic for Gallery
+    let startX = 0;
+    let endX = 0;
+    const slider = document.getElementById('slider');
+
+    slider.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      if (startX - endX > 40) moveSlide(1);
+      else if (endX - startX > 40) moveSlide(-1);
+    });
+
+    /* --- CAKE PAGE INTERACTIVITY & ANIMATION --- */
+    let candlesAreOn = true, audioCtx = null, isMusicPlaying = false, songTimer = null, noteIndex = 0;
+    const cakeContainer = document.getElementById('cake-container'),
+          flames = [document.getElementById('flame-1'), document.getElementById('flame-2'), document.getElementById('flame-3')],
+          statusBadge = document.getElementById('status-badge'),
+          badgeText = document.getElementById('badge-text'),
+          badgeIcon = document.getElementById('badge-icon'),
+          cakeGlow = document.getElementById('cake-glow'),
+          musicBtn = document.getElementById('music-btn'),
+          musicText = document.getElementById('music-text'),
+          musicIcon = document.getElementById('music-icon'),
+          emojiCanvas = document.getElementById('emoji-canvas'),
+          ctxEmoji = emojiCanvas.getContext('2d'),
+          balloonCanvas = document.getElementById('balloon-canvas'),
+          ctxBalloon = balloonCanvas.getContext('2d');
+
+    function resizeCanvases() {
+      emojiCanvas.width = balloonCanvas.width = window.innerWidth;
+      emojiCanvas.height = balloonCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvases);
+
+    // Falling Emojis Animation
+    const fallingEmojiTypes = ['❤️','🤍','🐱','💖','🤍','🐱','💕'];
+    let fallingEmojiParticles = [];
+
+    class FallingEmoji {
+      constructor() { this.reset(true); }
+      reset(initial = false) {
+        this.x = Math.random() * emojiCanvas.width;
+        this.y = initial ? Math.random() * emojiCanvas.height : -40;
+        this.size = Math.random() * 20 + 22;
+        this.speedY = Math.random() * 1.6 + 1.1;
+        this.speedX = Math.sin(Math.random() * Math.PI * 2) * 0.5;
+        this.emoji = fallingEmojiTypes[Math.floor(Math.random() * fallingEmojiTypes.length)];
+        this.opacity = Math.random() * 0.55 + 0.45;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.03;
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += Math.sin(this.y * 0.015) * 0.7;
+        this.rotation += this.rotationSpeed;
+        if (this.y > emojiCanvas.height + 50) this.reset(false);
+      }
+      draw() {
+        ctxEmoji.save();
+        ctxEmoji.globalAlpha = this.opacity;
+        ctxEmoji.font = `${this.size}px sans-serif`;
+        ctxEmoji.translate(this.x, this.y);
+        ctxEmoji.rotate(this.rotation);
+        ctxEmoji.fillText(this.emoji, -this.size / 2, this.size / 2);
+        ctxEmoji.restore();
+      }
+    }
+
+    function initFallingEmojis() {
+      fallingEmojiParticles = [];
+      const c = Math.min(Math.floor(window.innerWidth / 18), 35);
+      for (let i = 0; i < c; i++) fallingEmojiParticles.push(new FallingEmoji());
+    }
+
+    // Balloon Animation
+    let balloons = [];
+    const balloonPalette = ['#f472b6','#a855f7','#38bdf8','#facc15','#4ade80','#fb923c','#ffffff'];
+
+    class Balloon {
+      constructor(ox, oy) {
+        this.x = ox + (Math.random() - 0.5) * 160;
+        this.y = oy;
+        this.radius = Math.random() * 18 + 20;
+        this.color = balloonPalette[Math.floor(Math.random() * balloonPalette.length)];
+        this.speedY = Math.random() * 3 + 2.2;
+        this.swingSpeed = Math.random() * 0.04 + 0.02;
+        this.swingAmount = Math.random() * 2.5 + 1;
+        this.swingOffset = Math.random() * Math.PI * 2;
+        this.stringLen = this.radius * 2.4;
+      }
+      update() {
+        this.y -= this.speedY;
+        this.swingOffset += this.swingSpeed;
+        this.x += Math.sin(this.swingOffset) * this.swingAmount;
+      }
+      draw() {
+        ctxBalloon.save();
+        ctxBalloon.beginPath();
+        ctxBalloon.moveTo(this.x, this.y + this.radius);
+        ctxBalloon.quadraticCurveTo(this.x + Math.sin(this.swingOffset) * 12, this.y + this.radius + this.stringLen / 2, this.x, this.y + this.radius + this.stringLen);
+        ctxBalloon.strokeStyle = 'rgba(255,255,255,0.75)';
+        ctxBalloon.lineWidth = 1.8;
+        ctxBalloon.stroke();
+        ctxBalloon.beginPath();
+        ctxBalloon.ellipse(this.x, this.y, this.radius, this.radius * 1.25, 0, 0, Math.PI * 2);
+        ctxBalloon.fillStyle = this.color;
+        ctxBalloon.fill();
+        ctxBalloon.beginPath();
+        ctxBalloon.moveTo(this.x - 4, this.y + this.radius * 1.2);
+        ctxBalloon.lineTo(this.x + 4, this.y + this.radius * 1.2);
+        ctxBalloon.lineTo(this.x, this.y + this.radius * 1.2 + 5);
+        ctxBalloon.closePath();
+        ctxBalloon.fillStyle = this.color;
+        ctxBalloon.fill();
+        ctxBalloon.beginPath();
+        ctxBalloon.ellipse(this.x - this.radius * 0.35, this.y - this.radius * 0.4, this.radius * 0.25, this.radius * 0.4, Math.PI / 4, 0, Math.PI * 2);
+        ctxBalloon.fillStyle = 'rgba(255,255,255,0.45)';
+        ctxBalloon.fill();
+        ctxBalloon.restore();
+      }
+    }
+
+    function launchBalloons() {
+      const r = cakeContainer.getBoundingClientRect(),
+            sx = r.left + r.width / 2,
+            sy = r.top + r.height / 2;
+      for (let i = 0; i < 25; i++) setTimeout(() => balloons.push(new Balloon(sx, sy)), i * 60);
+    }
+
+    // Web Audio Synthesizer Controls
+    function initAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+    }
+
+    function playBlowSound() {
+      initAudio(); if (!audioCtx) return;
+      const sz = audioCtx.sampleRate * 0.4,
+            buf = audioCtx.createBuffer(1, sz, audioCtx.sampleRate),
+            d = buf.getChannelData(0);
+      for (let i = 0; i < sz; i++) d[i] = Math.random() * 2 - 1;
+      const n = audioCtx.createBufferSource(); n.buffer = buf;
+      const f = audioCtx.createBiquadFilter(); f.type = 'lowpass';
+      f.frequency.setValueAtTime(700, audioCtx.currentTime);
+      f.frequency.exponentialRampToValueAtTime(60, audioCtx.currentTime + 0.4);
+      const g = audioCtx.createGain();
+      g.gain.setValueAtTime(0.35, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+      n.connect(f); f.connect(g); g.connect(audioCtx.destination);
+      n.start();
+    }
+
+    function playRelightSound() {
+      initAudio(); if (!audioCtx) return;
+      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(440, audioCtx.currentTime);
+      o.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.25);
+      g.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(); o.stop(audioCtx.currentTime + 0.25);
+    }
+
+    const melody = [
+      {note:261.63,dur:.35},{note:261.63,dur:.25},{note:293.66,dur:.6},{note:261.63,dur:.6},{note:349.23,dur:.6},{note:329.63,dur:1},
+      {note:261.63,dur:.35},{note:261.63,dur:.25},{note:293.66,dur:.6},{note:261.63,dur:.6},{note:392,dur:.6},{note:349.23,dur:1},
+      {note:261.63,dur:.35},{note:261.63,dur:.25},{note:523.25,dur:.6},{note:440,dur:.6},{note:349.23,dur:.6},{note:329.63,dur:.6},{note:293.66,dur:.8},
+      {note:466.16,dur:.35},{note:466.16,dur:.25},{note:440,dur:.6},{note:349.23,dur:.6},{note:392,dur:.6},{note:349.23,dur:1.2}
+    ];
+
+    function playSongLoop() {
+      if (!isMusicPlaying) return;
+      initAudio();
+      const c = melody[noteIndex], o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(c.note, audioCtx.currentTime);
+      g.gain.setValueAtTime(0.001, audioCtx.currentTime);
+      g.gain.linearRampToValueAtTime(0.16, audioCtx.currentTime + 0.04);
+      g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + c.dur - 0.04);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(); o.stop(audioCtx.currentTime + c.dur);
+      noteIndex = (noteIndex + 1) % melody.length;
+      songTimer = setTimeout(playSongLoop, c.dur * 960);
+    }
+
+    function setMusicState(enable) {
+      initAudio(); isMusicPlaying = enable;
+      if (isMusicPlaying) {
+        musicText.textContent = 'Music: On';
+        musicIcon.textContent = '🎵';
+        musicBtn.classList.remove('opacity-60');
+        if (!songTimer) playSongLoop();
+      } else {
+        musicText.textContent = 'Music: Off';
+        musicIcon.textContent = '🔇';
+        musicBtn.classList.add('opacity-60');
+        clearTimeout(songTimer);
+        songTimer = null;
+      }
+    }
+
+    musicBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setMusicState(!isMusicPlaying);
+    });
+
+    function spawnSmoke(elem) {
+      const r = elem.getBoundingClientRect(), cr = cakeContainer.getBoundingClientRect();
+      for (let i = 0; i < 4; i++) {
+        const s = document.createElement('div');
+        s.className = 'smoke-particle';
+        s.style.left = `${r.left - cr.left + 3 + (Math.random() * 8 - 4)}px`;
+        s.style.top = `${r.top - cr.top - 6}px`;
+        cakeContainer.appendChild(s);
+        setTimeout(() => s.remove(), 1200);
+      }
+    }
+
+    function toggleCandles() {
+      initAudio();
+      if (!isMusicPlaying) setMusicState(true);
+
+      if (candlesAreOn) {
+        candlesAreOn = false;
+        flames.forEach(f => { f.classList.add('off'); spawnSmoke(f); });
+        cakeGlow.style.opacity = '0.2';
+        playBlowSound();
+        badgeIcon.textContent = '🕯️';
+        badgeText.textContent = 'Candles are OFF! Touch cake to light them';
+      } else {
+        candlesAreOn = true;
+        flames.forEach(f => f.classList.remove('off'));
+        cakeGlow.style.opacity = '0.7';
+        playRelightSound();
+        badgeIcon.textContent = '🔥';
+        badgeText.textContent = 'Candles are ON! Touch cake to blow them out';
+      }
+      launchBalloons();
+    }
+
+    cakeContainer.addEventListener('click', toggleCandles);
+
+    function animate() {
+      ctxEmoji.clearRect(0, 0, emojiCanvas.width, emojiCanvas.height);
+      fallingEmojiParticles.forEach(p => { p.update(); p.draw(); });
+
+      ctxBalloon.clearRect(0, 0, balloonCanvas.width, balloonCanvas.height);
+      for (let i = balloons.length - 1; i >= 0; i--) {
+        balloons[i].update();
+        balloons[i].draw();
+        if (balloons[i].y < -120) balloons.splice(i, 1);
+      }
+      requestAnimationFrame(animate);
+    }
+
+    window.onload = function() {
+      resizeCanvases();
+      initFallingEmojis();
+      animate();
+
+      const startOnTouch = () => {
+        if (!isMusicPlaying && document.getElementById('cakePage').style.display === 'flex') {
+          setMusicState(true);
+        }
+        window.removeEventListener('click', startOnTouch);
+        window.removeEventListener('touchstart', startOnTouch);
+      };
+      window.addEventListener('click', startOnTouch);
+      window.addEventListener('touchstart', startOnTouch);
+    };
+  </script>
+</body>
+</html>
